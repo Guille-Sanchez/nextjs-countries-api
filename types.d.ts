@@ -1,4 +1,23 @@
-export interface CountriesAPI {
+export type FormattedCountries = FormattedCountry[]
+export interface FormattedCountry {
+  alpha3Code: string
+  borders?: string[]
+  capital?: string
+  currencies: string
+  flag: string
+  flagAlt: string
+  languages: string
+  name: string
+  nativeName: string
+  population: number
+  region: string
+  subregion: string
+  topLevelDomain: string
+}
+
+export type CountriesApi = CountryApi[]
+
+export interface CountryApi {
   name: Name
   tld?: string[]
   cca2: string

@@ -1,8 +1,11 @@
-import { IconMoon } from './components/Icons'
+import { IconMoon } from '../components/Icons'
 import './globals.css'
 import { Nunito_Sans } from 'next/font/google'
 
-const Nunito = Nunito_Sans({ subsets: ['latin'] })
+const Nunito = Nunito_Sans({
+  subsets: ['latin'],
+  variable: '--font-nunito_sans'
+})
 
 export const metadata = {
   title: 'Create Next App',

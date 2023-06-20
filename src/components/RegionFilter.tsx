@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { IconDown } from './Icons'
 
-export const CountriesDropdown = (): JSX.Element => {
+export const RegionFilter = (): JSX.Element => {
   const [showRegions, setShowRegions] = useState(false)
   const [regionToFilterBy, setRegionToFilterBy] = useState('Filter by region')
   const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
@@ -18,23 +18,22 @@ export const CountriesDropdown = (): JSX.Element => {
   }
 
   return (
-    <div
-      className='relative w-1/2 max-w-[200px] mx-5 mt-7'
-      aria-haspopup={true}
-    >
-      <button
-        className='w-full text-sm text-left pl-5 rounded-md py-3 bg-dark-mode-element text-dark-mode-text'
-        onClick={toggleShowRegions}
-      >
-        {regionToFilterBy}
-      </button>
-      <div className='absolute top-4 right-5'>
-        <IconDown />
+    <div className='w-1/2 max-w-[200px] mx-5 mt-7' aria-haspopup={true}>
+      <div className='relative'>
+        <button
+          className='w-full text-sm text-left pl-5 rounded-md py-3 bg-dark-mode-element text-dark-mode-text'
+          onClick={toggleShowRegions}
+        >
+          {regionToFilterBy}
+        </button>
+        <div className='absolute top-4 right-5'>
+          <IconDown />
+        </div>
       </div>
 
       <ul
-        className={`flex bg-dark-mode-element rounded-md flex-col gap-2 py-2 top-1 z-10 ${
-          showRegions ? 'relative' : 'hidden'
+        className={`flex w-1/2 bg-dark-mode-element rounded-md flex-col gap-2 py-2 z-10 ${
+          showRegions ? 'absolute top-[50px]' : 'hidden'
         }`}
       >
         {regions.map(region => {
