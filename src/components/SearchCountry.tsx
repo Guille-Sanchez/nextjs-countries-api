@@ -2,8 +2,8 @@ import { IconMagnify } from './Icons'
 
 export const SearchCountry = (): JSX.Element => {
   return (
-    <form className='relative mt-7 bg-dark-mode-bg'>
-      <div className='mx-5  bg-dark-mode-bg'>
+    <form className='relative w-full max-w-[550px] bg-dark-mode-bg'>
+      <div className='bg-dark-mode-bg shadow-md'>
         <input
           type='text'
           placeholder='Search for a country...'

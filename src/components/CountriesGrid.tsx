@@ -3,22 +3,29 @@ import Image from 'next/image'
 
 export const CountriesGrid = (): JSX.Element => {
   const countries = parseCountriesData()
+  const countryInformation = ['Population', 'Region', 'Capital']
 
   return (
     <section title='Countries' className='w-full flex justify-center'>
-      <ul className='w-full max-w-[1400px] flex flex-wrap gap-5 justify-center gap-y mx-5 mt-7'>
+      <ul
+        className='w-full max-w-[1300px] flex flex-wrap gap-5 justify-center xl:justify-between mx-5 mt-7'
+        style={{
+          gap: 'clamp(1.25rem, -7.981rem + 14.423vw, 5rem)',
+          marginTop: 'clamp(1.75rem, -0.096rem + 2.885vw, 2.5rem)'
+        }}
+      >
         {countries.map(country => {
           return (
             <li
               key={country.name}
-              className='overflow-hidden flex flex-col gap-5 rounded-sm bg bg-dark-mode-element'
+              className='overflow-hidden flex flex-col gap-5 rounded-sm bg bg-dark-mode-element shadow-md'
             >
-              <div className='relative w-72 min-h-[144px] h-auto object-contain'>
+              <div className='relative w-60 min-h-[120px] h-auto object-contain'>
                 <Image
                   src={country.flag}
                   alt={country.flagAlt}
                   fill={true}
-                  sizes='288px'
+                  sizes='240px'
                 />
               </div>
 
@@ -28,26 +35,24 @@ export const CountriesGrid = (): JSX.Element => {
                 </h2>
               </header>
 
-              <div className='px-5 pb-5'>
-                <p className='text-opacity-80 text-sm text-dark-mode-text'>
-                  <span className='font-bold text-sm text-dark-mode-text text-opacity-100'>
-                    Population:
-                  </span>{' '}
-                  {country.population}
-                </p>
-                <p className='text-opacity-80 text-sm text-dark-mode-text'>
-                  <span className='font-bold text-sm text-dark-mode-text text-opacity-100'>
-                    Region:
-                  </span>{' '}
-                  {country.region}
-                </p>
-                <p className='text-opacity-80 text-sm text-dark-mode-text'>
-                  <span className='font-bold text-sm text-dark-mode-text text-opacity-100'>
-                    Capital:
-                  </span>{' '}
-                  {country.capital}
-                </p>
-              </div>
+              <ul className='flex flex-col gap-2 px-5 pb-5'>
+                {countryInformation.map(information => {
+                  return (
+                    <li key={information}>
+                      <p className='text-opacity-80 text-sm text-dark-mode-text'>
+                        <span className='font-bold text-sm text-dark-mode-text text-opacity-100'>
+                          {information}
+                        </span>{' '}
+                        {
+                          country[
+                            information.toLowerCase() as keyof typeof country
+                          ]
+                        }
+                      </p>
+                    </li>
+                  )
+                })}
+              </ul>
             </li>
           )
         })}
