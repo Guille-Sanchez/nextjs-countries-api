@@ -6,10 +6,8 @@ export default function Home() {
   return (
     <main>
       <SearchCountry />
-      <div className='relative'>
-        <RegionFilter />
-        <CountriesGrid />
-      </div>
+      <RegionFilter />
+      <CountriesGrid />
     </main>
   )
 }

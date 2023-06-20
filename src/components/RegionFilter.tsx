@@ -30,10 +30,9 @@ export const RegionFilter = (): JSX.Element => {
           <IconDown />
         </div>
       </div>
-
       <ul
-        className={`flex w-1/2 bg-dark-mode-element rounded-md flex-col gap-2 py-2 z-10 ${
-          showRegions ? 'absolute top-[50px]' : 'hidden'
+        className={`flex w-1/2 max-w-[200px] bg-dark-mode-element rounded-md flex-col gap-2 mt-3 py-2 z-10 ${
+          showRegions ? 'absolute' : 'hidden'
         }`}
       >
         {regions.map(region => {
