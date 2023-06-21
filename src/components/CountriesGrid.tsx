@@ -1,8 +1,8 @@
-import { parseCountriesData } from '../logic/parseCountriesData'
+import { useCountries } from '@/hooks/useCountries'
 import Image from 'next/image'
 
-export const CountriesGrid = (): JSX.Element => {
-  const countries = parseCountriesData()
+export const CountriesGrid = async (): Promise<JSX.Element> => {
+  const countries = await useCountries()
   const countryInformation = ['Population', 'Region', 'Capital']
 
   return (

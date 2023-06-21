@@ -1,7 +1,12 @@
-import countries from '../../Challenge/data.json'
 import { CountriesApi, FormattedCountries } from '../../types'
 
-export const parseCountriesData = (): FormattedCountries => {
+interface Props {
+  countries: CountriesApi
+}
+
+export const parseCountriesData = ({
+  countries
+}: Props): FormattedCountries => {
   const countryFormatter = countries.map(country => {
     const nativeName =
       country.name.nativeName === undefined
