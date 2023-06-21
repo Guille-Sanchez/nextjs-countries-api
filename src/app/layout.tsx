@@ -1,4 +1,4 @@
-import { IconMoon } from '../components/Icons'
+import Header from '@/components/Header'
 import './globals.css'
 import { Nunito_Sans } from 'next/font/google'
 
@@ -22,16 +22,7 @@ export default function RootLayout({
       <body
         className={`${Nunito.className} bg-dark-mode-bg text-dark-mode-text`}
       >
-        <header className='w-full  px-5 py-7 bg-dark-mode-element'>
-          <div className='flex justify-between w-full max-w-[1300px] mx-auto'>
-            <h1 className='font-bold'>Where in the world?</h1>
-
-            <div className='flex items-center gap-2'>
-              <IconMoon />
-              <p className='text-sm'>Dark Mode</p>
-            </div>
-          </div>
-        </header>
+        <Header />
         {children}
       </body>
     </html>
