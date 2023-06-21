@@ -1,8 +1,11 @@
 import { useCountries } from '@/hooks/useCountries'
 import Image from 'next/image'
 
-export const CountriesGrid = async (): Promise<JSX.Element> => {
-  const countries = await useCountries()
+export const CountriesGrid = () => {
+  // Unnecesary lines while using mocking data and not fetching it
+  // async (): Promise<JSX.Element> => {
+  // const countries = await useCountries()
+  const countries = useCountries()
   const countryInformation = ['Population', 'Region', 'Capital']
 
   return (
