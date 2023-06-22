@@ -1,5 +1,9 @@
-const country = () => {
-  return <div></div>
+'use client'
+
+const Country = async ({ params }: { params: { country: string } }) => {
+  const country = params.country
+
+  return <div>{country}</div>
 }
 
-export default country
+export default Country

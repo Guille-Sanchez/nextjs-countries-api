@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import './globals.css'
 import { Nunito_Sans } from 'next/font/google'
+import { CountriesProvider } from '@/context/CountriesProvider'
 
 const Nunito = Nunito_Sans({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ export default function RootLayout({
         className={`${Nunito.className} bg-dark-mode-bg text-dark-mode-text`}
       >
         <Header />
-        {children}
+        <CountriesProvider>{children}</CountriesProvider>
       </body>
     </html>
   )
